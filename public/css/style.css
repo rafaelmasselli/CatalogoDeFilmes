@@ -1,0 +1,108 @@
+section#message {
+  padding: 1.5rem;
+  background-image: url(../img/marvel.gif);
+  background-position: center;
+  position: fixed;
+  top: 3rem;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  width: 300px;
+  height: 30px;
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+span#close {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+span#close:hover {
+  color: rgba(255, 0, 0, 0.959);
+  transform: scale(1.5);
+}
+
+body,
+ul,
+li,
+p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Arial;
+  color: rgb(255, 255, 255);
+}
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.header {
+  background-color: rgb(3, 1, 1);
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
+.menu {
+  display: flex;
+}
+.menu li {
+  margin-left: 20px;
+}
+
+.menu li a {
+  display: block;
+  padding: 5px;
+  background-color: rgb(133, 37, 37);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 100px;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.flex > div {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+
+#fundo {
+  background-image: url(../img/fundo.png);
+}
+
+.imag {
+  width: 200px;
+  height: 250px;
+}
+
+.imag:hover {
+  width: 350px;
+  height: 350px;
+}
+
+.blackk {
+  color: rgb(0, 0, 0);
+}
