@@ -5,19 +5,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes</title>
-    <link rel="stylesheet" href="css/style.css">
+    
     <link rel="icon" href="/IMG/iconn.png">
-<body id = "fundo">
-    <header class="header">
-        <a href=http://localhost:3000> <img src="../IMG/icon.png" width="50" height="50"></a>
-        <nav>
-            <ul class="menu">
-                <li><a href=http://localhost:3000/cadastro>Criar</a></li>
-                <li><a href=http://localhost:3000>Menu</a></li>
-            </ul>
-        </nav>
-    </header>
+    <style>
 
+body,
+ul,
+li,
+p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Arial;
+  color: rgb(255, 255, 255);
+}
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.header {
+  background-color: rgb(3, 1, 1);
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px;
+}
+
+.menu {
+  display: flex;
+}
+.menu li {
+  margin-left: 20px;
+}
+
+.menu li a {
+  display: block;
+  padding: 5px;
+  background-color: rgb(133, 37, 37);
+  font-family: "Times New Roman", Times, serif;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 100px;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.flex > div {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+
+#fundo {
+  background-image: url(../img/fundo.png);
+}
+
+    </style>
+    <head>
+<body id = "fundo">
+        <header class="header">
+            <a href=http://localhost:3000> <img src="../IMG/icon.png" width="50" height="50"></a>
+            <nav>
+                <ul class="menu">
+                    <li><a href=http://localhost:3000/cadastro>Criar </a></li>
+                    <li><a href=http://localhost:3000>Menu</a></li>
+                    <li><a href=http://localhost:3000/editar>Editar</a></li>
+                </ul>
+            </nav>
+        </header>
     <h1>Informacaoes do filme</h1>
 
 </body>

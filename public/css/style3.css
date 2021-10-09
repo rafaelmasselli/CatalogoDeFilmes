@@ -1,0 +1,38 @@
+body,
+ul,
+li,
+p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Arial;
+  color: rgb(0, 0, 0);
+}
+a {
+  text-decoration: none;
+  color: rgb(3, 0, 0);
+}
+.header {
+  background-color: rgb(0, 0, 0);
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+}
+
+.menu {
+  display: flex;
+}
+.menu li {
+  margin-left: 20px;
+}
+
+.menu li a {
+  display: block;
+  padding: 4px;
+  background-color: rgb(255, 255, 255);
+  font-family: "Times New Roman", Times, serif;
+}
