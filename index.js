@@ -1,10 +1,14 @@
 const express = require("express");
-const app = express();
-const porta = 3000;
 const path = require("path");
+const app = express();
+require('dotenv').config()
+const porta = process.env.PORT;
+const db = require('./model/database')
+const filme = require('/model/filmes' )
+
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 let message = "";
 
 // teste crud js puro
@@ -29,7 +33,14 @@ app.get("/", (req, res) => {
     setTimeout(() => {
     message = "";
   }, 5000);
-  res.render("../views/index",{message});
+  res.render("index", {   
+    filmes,
+  });
+});
+
+app.get("/filme", async (req, res) => {
+  const filme = await Cargo.findAll();
+  res.json(filme); 
 });
 
 // render cadastro
@@ -79,7 +90,5 @@ app.get("/detalhes",function (req,res){
 
 
 
-
+db.conectado();
 app.listen(porta, () =>console.log(`Servidor rodando em http://localhost:${porta}`));
-
-
