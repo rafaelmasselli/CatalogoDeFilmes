@@ -36,3 +36,24 @@ a {
   background-color: rgb(255, 255, 255);
   font-family: "Times New Roman", Times, serif;
 }
+
+.box {
+  color: rgb(20, 13, 13);
+  text-align: center;
+  position: absolute;
+}
+
+.question {
+  color: rgb(0, 0, 0);
+  font-family: "Times New Roman", Times, serif;
+}
+#center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  margin-top: 2%;
+}
+
+.box2 {
+  text-align: center;
+}

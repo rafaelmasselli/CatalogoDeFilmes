@@ -5,8 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar</title>
-    <link rel="stylesheet" href="css/style3.css">
     <link rel="icon" href="/IMG/iconn.png">
+    <style>
+        body,
+ul,
+li,
+p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Arial;
+  color: rgb(0, 0, 0);
+}
+a {
+  text-decoration: none;
+  color: rgb(3, 0, 0);
+}
+.header {
+  background-color: rgb(0, 0, 0);
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+}
+
+.menu {
+  display: flex;
+}
+.menu li {
+  margin-left: 20px;
+}
+
+.menu li a {
+  display: block;
+  padding: 4px;
+  background-color: rgb(255, 255, 255);
+  font-family: "Times New Roman", Times, serif;
+}
+
+.box {
+  color: rgb(20, 13, 13);
+  text-align: center;
+  position: absolute;
+}
+
+.question {
+  color: rgb(0, 0, 0);
+  font-family: "Times New Roman", Times, serif;
+}
+#center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  margin-top: 2%;
+}
+
+.box2 {
+  text-align: center;
+}
+
+    </style>
 </head>
 <body id = "fundo">
         <header class="header">
@@ -19,6 +80,62 @@
                 </ul>
             </nav>
         </header>
+<h1 class = "box2">Alterando</h1>
+<section id="center">
+    <div class="box">
+        <form method="POST">
+            <div class="inputC">
+                <p class="question">Nome</p>
+                <label for="nome"></label class="labelinput">
+                <input type="text" name="nome" id="input_nome" required value = "filmes.nome">
+            </div>
+            <br>
+            <div class="inputC">
+                <p class="question">Genero</p>
+                <label for="gen"></label>
+                <select id="gen" name="gen">
+                    <option value="Animação ">Animação</option>
+                    <option value="Comédia">Comédia</option>
+                    <option value="Comédia Romântica">Comédia Romântica</option>
+                    <option value="Comédia Dramática">Comédia Dramática</option>
+                    <option value="Documentário">Documentário</option>
+                    <option value="Drama ">Drama</option>
+                    <option value="Faroeste ">Faroeste</option>
+                    <option value="Ficção Científica ">Ficção Científica</option>
+                    <option value="Musical"> Musical </option>
+                    <option value="Suspense ">Suspense</option>
+                    <option value="Terror / Horror  ">Terror / Horror</option>
+                </select>
+                <br>
+                <br>
+                <div class="inputC">
+                    <p class="question">Imagem Url</p>
+                    <label for="image"></label class="labelinput">
+                    <input type="url" name="image" id="input_image" required value="filmes.image">
+                </div>
+                <br>
+                <div>
+                <p><b>Imagem ultilizada </b></p>
+                <img src="https://br.web.img2.acsta.net/c_310_420/medias/nmedia/18/92/90/99/20224665.jpg" height="300" width="250" class="img-file" >
+                </div>
+                <br>
+                <div class="inputC">
+                    <p class="question">Nome do autor</p>
+                    <label for="autor"></label class="labelinput">
+                    <input type="text" name="autor" id="input_autor" required value = "filmes.autor">
+                </div>           
+                <br>
+                <div class="inputC">
+                    <p class="question">Ano de lancamento</p>
+                    <label for="autor"></label>
+                    <input type="date" name="ano" id="input_ano" required>
+                </div>
+                <br>
+                <br>
+                <button class="botao" type="submit">Editarr</button>
+        </form>
+    </div>
+</section>
 
 
 <script type="text/javascript" src="../public/js/efeito.js"></script>
