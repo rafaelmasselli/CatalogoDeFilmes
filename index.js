@@ -5,6 +5,8 @@ require('dotenv').config()
 const porta = process.env.PORT;
 const db = require('./model/database')
 
+const filmes = require('./model/filme');
+
 
 let message = ""
 
@@ -14,15 +16,15 @@ app.use(express.urlencoded({ extended: true }))
 
 // render com a mensagem 
 
-app.get("/", (req, res) => {
-    setTimeout(() => {
-    message = "";
-  }, 5000);
-  res.render("index", {message});});
+app.get("/",  async (req, res) => {
+  const filme = await filmes.findAll();
+    setTimeout(() => { message = "";}, 5000);
+  res.render("index", {message,filme});});
+
 
 app.get("/filme", async (req, res) => {
-  const filme = await Cargo.findAll();
-  res.json(filme); 
+  const filme = await filmes.findAll();
+  res.render('teste',{filme}); 
 });
 
 // render cadastro
@@ -34,7 +36,7 @@ app.get("/cadastro", (req, res) => {
 // render pos cadastro com teste de node js, e mensagem 5 s
 
 app.post("/New", (req, res) => {  
-  const {nome} = req.body;  
+  const {nome,genero,image,autor,ano} = req.body;  
 message = `O Filme ${nome} foi adicionado`
   res.redirect("/")
 })
