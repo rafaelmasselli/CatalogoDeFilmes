@@ -1,4 +1,4 @@
-const database = require(".//database");
+const database = require("./database");
 
 const Filme = database.define("filmes", {
   ID: {

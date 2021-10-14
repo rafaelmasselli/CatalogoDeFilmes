@@ -4,12 +4,12 @@ const app = express();
 require('dotenv').config()
 const porta = process.env.PORT;
 const db = require('./model/database')
-const filme = require('/model/filmes' )
+
+let message = ""
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
-let message = "";
 
 // teste crud js puro
 
@@ -33,10 +33,7 @@ app.get("/", (req, res) => {
     setTimeout(() => {
     message = "";
   }, 5000);
-  res.render("index", {   
-    filmes,
-  });
-});
+  res.render("index", {filmes,message});});
 
 app.get("/filme", async (req, res) => {
   const filme = await Cargo.findAll();
