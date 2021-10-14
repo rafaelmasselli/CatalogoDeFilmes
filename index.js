@@ -5,27 +5,12 @@ require('dotenv').config()
 const porta = process.env.PORT;
 const db = require('./model/database')
 
+
 let message = ""
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({ extended: true }));
-
-// teste crud js puro
-
-const filmes = [{
-  nome:"capitao",
-  genero:"acao",
-  image:"https://a-static.mlcdn.com.br/1500x1500/dvd-capitao-america-o-primeiro-vingador-rimo/campinascomercio2/1678014411/6352bfcb6d963f1f0b3fd68f558e6bf2.jpg",
-  autor:"stalen"
-},
-{
-  nome:"capita",
-  genero:"acao",
-  image:"https://upload.wikimedia.org/wikipedia/pt/5/59/Captain_Marvel_%282018%29.jpg",
-  autor:"stalen"
-
-}]
+app.use(express.urlencoded({ extended: true }))
 
 // render com a mensagem 
 
@@ -33,7 +18,7 @@ app.get("/", (req, res) => {
     setTimeout(() => {
     message = "";
   }, 5000);
-  res.render("index", {filmes,message});});
+  res.render("index", {message});});
 
 app.get("/filme", async (req, res) => {
   const filme = await Cargo.findAll();
