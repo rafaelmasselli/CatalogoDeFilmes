@@ -121,3 +121,19 @@ img {
   top: 50%;
   left: 50%;
 }
+
+h2 {
+  color: white;
+}
+div {
+  max-width: 260px;
+}
+div:hover {
+  width: 250px;
+  height: 350px;
+}
+.fontZ {
+  font-size: 25px;
+  color: white;
+  font-family: serif;
+}

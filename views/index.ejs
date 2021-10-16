@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="/IMG/iconn.png">
 </head>
-
+<body id = "fundo">
 <% if(message !="" ) { %>
     <section id="message">
         <p class="blackk">
@@ -16,21 +16,12 @@
         </p> <span id="close">&times;</span>
     </section>
     <% } %>
-</>
-
-
-<body id = "fundo">
-<div class = "blackk">
-
-</div>
-
         <header class="header">
             <a href=http://localhost:3000> <img src="../IMG/icon.png" width="50" height="50"></a>
             <nav>
                 <ul class="menu">
                     <li><a href=http://localhost:3000/cadastro>Criar </a></li>
                     <li><a href=http://localhost:3000>Menu</a></li>
-                    <li><a href=http://localhost:3000/editar>Editar</a></li>
                 </ul>
             </nav>
         </header>
@@ -39,17 +30,17 @@
         Catalago De filmes
     </h1>
 <section class="flex">
-    <div class="pot">
-                <% filme.forEach(item=> { %>
-                    <a href=http://localhost:3000>
-                        <h2>
-                            <%= item.nome %>
-                        </h2>
-                            <img src=" <%=item.imagem%>" alt="Filme" class="imag">
-                        </p>
-                    </a>
-                  <% }) %>
-    </div>  
+        <% filme.forEach(item=> { %>
+            <div>
+           <p class = "fontZ">
+                <%= item.nome %>
+           </p>
+            <a href="http://localhost:3000/detalhes/<%=item.id%>">
+                <img src=" <%=item.imagem%>" alt ="<% filme.nome %>" class="imag">
+            </a>
+            </div>
+            <% }) %>
 </section>
+</bod>
     <script type="text/javascript" src="js/script.js"></script>
 </html>
