@@ -18,29 +18,28 @@
             </nav>
         </header>
     <h1 >Informacoes do filme</h1>
+<body>
+  <header class="centralize">
+      <p class="fontZ">
+        <%= filme.Nome %>
+      </p>
+      <p>
+        <% filme.Genero %>
+      </p>
+      <img src="<%=filme.Imagem%>" alt="Filme" class="imag" height="300" width="250" class="img-file" alt = "<% filme.Nome %>">
+    <p>
+      <% filme.Autor %>
+    </p>
+    <p>
+      <% filme.Ano %>
+    </p>
+    <br>
+  </header>
 
-<header class="centralize">
-  
-  <p class="fontZ">
-    <%= filme.nome %>
-  </p>
-  <p>
-    <% filme.genero %>
-  </p>
-   <img src=" <%=filme.imagem%>" alt="Filme" class="imag" height="300" width="250" class="img-file" alt = "<% filme.nome %>">
-<p>
-  <% filme.autor %>
-</p>
-<p>
-  <% filme.ano %>
-</p>
-<br>
-</header>
-
-  <div id = "center">
-        <a href="/editar/<%=filme.id%>" class = "botao"><button>Editar</button></a>
-        <a href="/deletar/<%=filme.id%>" class = "botao"><button>Excluir</button></a>
-  </div>
+    <div id = "center">
+          <a href="/editar/<%=filme.ID%>" class = "botao"><button>Editar</button></a>
+          <a href="/deletar/<%=filme.ID%>" class = "botao"><button>Excluir</button></a>
+    </div>
 
 </body>
 </html>
