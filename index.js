@@ -8,7 +8,7 @@ const db = require('./model/database')
 const filmes = require('./model/filme');
 
 
-let message = ""
+let mensagem = ""
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
@@ -18,8 +18,9 @@ app.use(express.urlencoded({ extended: true }))
 
 app.get("/",  async (req, res) => {
   const filme = await filmes.findAll();
-    setTimeout(() => { message = "";}, 5000);
-  res.render("index", {message,filme});});
+    setTimeout(() => { mensagem = "";}, 5000);
+  res.render("index", {mensagem,filme});
+});
 
 
 app.get("/filme", async (req, res) => {
@@ -36,49 +37,86 @@ app.get("/cadastro", (req, res) => {
 // render cadastro, redirect index principal
 
 app.post("/New", async (req, res) => {  
-  const {nome,genero,image,autor,ano} = req.body;
+  const {nome,genero,image,diretor,ano} = req.body;
   const filme = await filmes.create({
- nome:nome,
- genero:genero,
- image:image,
- autor:autor,
- ano:ano,
-  })
-message = `O Filme ${nome} foi adicionado`
+    Nome:nome,
+    Genero:genero,
+    Imagem:image,
+    Diretor:diretor,
+    Ano:ano,
+      })
+mensagem = `O Filme ${nome} foi adicionado`
 res.redirect("/")})
 
 // render detalhes com id <a>
 
-app.get("/detalhes/:id", async function (req, res){
-  const filme = await filmes.findByPk(req.params.id);
+app.get("/detalhes/:ID", async function (req, res){
+  const filme = await filmes.findByPk(req.params.ID);
   res.render("../views/detalhes",{filme:filme})
 });
 
 // render deleter
 
-app.get("/deletar", function (req,res){
-  res.render("../views/deletar")
+app.get("/deletar/:ID", async (req, res) => {
+  const filme = await filmes.findByPk(req.params.ID);
+
+  if (!filme) {
+    res.render("deletar", {
+      mensagem: "Filme não encontrado!",
+    });
+  }
+
+  res.render("deletar", {
+    filme,
+  });
+});
+
+app.post('/deletar/deletar/:ID', async (req,res) => {
+  const filme = await filmes.findByPk(req.params.ID);
+
+  if (!filme) {    
+    res.render("deletar", {      
+      mensagem: "Filme não encontrado!",    
+    });  
+  };
+
+  await filme.destroy();
+
+  const filmesList = await filmes.findAll();
+  res.render("index", {    
+    mensagem: `Filme deletado com sucesso!`,  filme:filmesList});
 });
 
 
 //render editar
 
-app.get("/editar/:id", async function (req,res){
-    const filme = await filmes.findByPk(req.params.id);
-    const { nome, genero, image, autor,ano} = req.body;
+app.get('/editar/:ID', async (req,res) => {
+  const filme = await filmes.findByPk(req.params.ID);
+
+  if (!filme) {
+    res.render("deletar", {
+      mensagem: "Filme não encontrado!",
+    });
+  }
+
+  res.render("../views/editar", {filme: filme});
+});
+
+app.post("/editar/:ID", async function (req,res){
+    const filme = await filmes.findByPk(req.params.ID);
+    const { nome, genero, image, diretor, ano} = req.body;
     
-    filme.nome = nome;
-    filme.genero = genero;
-    filme.image = image;
-    filme.autor = autor;
-    filme.ano = ano;
+    filme.ID = req.params.ID;
+    filme.Nome = nome;
+    filme.Genero = genero;
+    filme.Imagem = image;
+    filme.Diretor = diretor;
+    filme.Ano = ano;
     
     await filme.save();
     res.redirect("/");  
     res.render("../views/editar",{filme})
 });
-
-
 
 
 db.conectado();

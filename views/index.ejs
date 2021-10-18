@@ -9,10 +9,10 @@
     <link rel="icon" href="/IMG/iconn.png">
 </head>
 <body id = "fundo">
-<% if(message !="" ) { %>
+<% if(mensagem !="" ) { %>
     <section id="message">
         <p class="blackk">
-            <%= message %>
+            <%= mensagem %>
         </p> <span id="close">&times;</span>
     </section>
     <% } %>
@@ -32,14 +32,14 @@
 <section class="flex">
         <% filme.forEach(item=> { %>
             <div>
-           <p class = "fontZ">
-                <%= item.nome %>
-           </p>
-            <a href="http://localhost:3000/detalhes/<%=item.id%>">
-                <img src=" <%=item.imagem%>" alt ="<% filme.nome %>" class="imag">
+           <h2 class = "fontZ">
+                <%= item.Nome %>
+           </h2>
+            <a href="detalhes/<%=item.ID%>">
+                <img src=" <%=item.Imagem%>" alt ="<%=filme.Nome%>" class="imag">
             </a>
             </div>
-            <% }) %>
+        <% }) %>
 </section>
 </bod>
     <script type="text/javascript" src="js/script.js"></script>
