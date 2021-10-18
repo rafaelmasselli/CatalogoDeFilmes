@@ -1,22 +1,20 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const database = require('./database');
+const {Sequelize}  = require('sequelize');
+const database = require("./database");
 
 const Filme = database.sequelize.define("filmes", {
-  ID: {
+  id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true,
   },
-  Nome: {
+  nome: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  Genero: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  Imagem: {
+  genero: Sequelize.STRING,
+  
+  imagem: {
     type: Sequelize.STRING,
     allowNull: false,
   },
