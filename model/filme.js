@@ -18,11 +18,11 @@ const Filme = database.sequelize.define("filmes", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  Diretor: {
+  diretor: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  Ano: {
+  ano: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },

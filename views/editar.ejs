@@ -6,17 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar</title>
     <link rel="icon" href="/IMG/iconn.png">
-    <link rel="stylesheet" href="../css/style3.css">
+    <link rel="stylesheet" href="/../css/style3.css">
  
 </head>
 <body id = "fundo">
         <header class="header">
-            <a href=http://localhost:3000> <img src="../IMG/iconS.png" width="50" height="50"></a>
+            <a href=http://localhost:3000> <img src="../IMG/edita.gif" width="50" height="50"></a>
             <nav>
                 <ul class="menu">
                     <li><a href=http://localhost:3000/cadastro>Criar </a></li>
                     <li><a href=http://localhost:3000>Menu</a></li>
-                    <li><a href=http://localhost:3000/editar>Editar</a></li>
                 </ul>
             </nav>
         </header>
@@ -27,7 +26,7 @@
             <div class="inputC">
                 <p class="question">Nome</p>
                 <label for="nome"></label class="labelinput">
-                <input type="text" name="nome" id="input_nome" required value = "<%=filme.Nome%>">
+                <input type="text" name="nome" id="input_nome" required value = "<%=filme.nome%>">
             </div>
             <br>
             <div class="inputC">
@@ -50,30 +49,30 @@
                 <div class="inputC">
                     <p class="question">Imagem Url</p>
                     <label for="image"></label class="labelinput">
-                    <input type="url" name="image" id="input_image" required value="<%=filme.Imagem%>">
+                    <input type="url" name="image" id="input_image" required value="<%=filme.imagem%>">
                 </div>
                 <br>
                 <div>
                 <p><b>Imagem utilizada </b></p>
-                <img src="https://br.web.img2.acsta.net/c_310_420/medias/nmedia/18/92/90/99/20224665.jpg" height="300" width="250" class="img-file" alt="<% filme.nome %>">
+                <img src="<%=filme.imagem%>" height="300" width="250" class="img-file" alt="<% filme.nome %>">
                 </div>
                 <br>
                 <div class="inputC">
                     <p class="question">Nome do diretor</p>
                     <label for="diretor"></label class="labelinput">
-                    <input type="text" name="diretor" id="input_diretor" required value = "<%=filme.Diretor%>">
+                    <input type="text" name="diretor" id="input_diretor" required value = "<%=filme.diretor%>">
                 </div>           
                 <br>
                 <div class="inputC">
                     <p class="question">Ano de lancamento</p>
                     <label for="diretor"></label>
-                    <input type="integer" name="ano" id="input_ano" required value = "<%=filme.Ano%>">
+                    <input type="integer" name="ano" id="input_ano" required value = "<%=filme.ano%>">
                 </div>
                 <br>
                 <button class="botao" type="submit">Editar</button>
                 <br>
                 <br>
-        </form>
+        </form> 
     </div>
 </section>
 
