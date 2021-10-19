@@ -44,9 +44,9 @@ app.post("/New", async (req, res) => {
     imagem:image,
     diretor:diretor,
     ano:ano,
-      })
-mensagem = `O Filme ${nome} foi adicionado`
-res.redirect("/")})
+  })
+  mensagem = `O Filme ${nome} foi adicionado`
+res.redirect("/"),filme})
 
 // render detalhes com id <a>
 
@@ -75,16 +75,12 @@ app.post('/deletar/deletar/:id', async (req,res) => {
   const filme = await filmes.findByPk(req.params.id);
 
   if (!filme) {    
-    res.render("deletar", {      
-      mensagem: "Filme não encontrado!",    
-    });  
-  };
+    res.render("deletar",  {mensagem: "Filme não encontrado!",});};
 
   await filme.destroy();
 
   const filmesList = await filmes.findAll();
-  res.render("index", {    
-    mensagem: `Filme deletado com sucesso!`,  filme:filmesList});
+  res.render("index", {mensagem: `Filme deletado com sucesso!`,  filme:filmesList});
 });
 
 //render editar
@@ -105,7 +101,7 @@ app.get('/editar/:id', async (req,res) => {
       var selected = (filme.genero == i ) ? "selected" : "";
   }
 
-  res.render("../views/editar", {filme: filme});
+  res.render("../views/editar", {filme:filme});
 });
 
 app.post("/editar/:id", async function (req,res){
@@ -118,11 +114,12 @@ app.post("/editar/:id", async function (req,res){
     filme.imagem = image;
     filme.diretor = diretor;
     filme.ano = ano;
-    
-    await filme.save();
-    res.redirect("/"); 
-});
 
+    mensagem = `O Filme ${nome} foi alterado com sucesso!`
+  
+    await filme.save();
+    res.render("../views/editar",{filme,mensagem:`o filme ${nome} foi alterado`})
+});
 
 db.conectado();
 app.listen(porta, () =>console.log(`Servidor rodando em http://localhost:${porta}`));

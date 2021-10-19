@@ -21,25 +21,37 @@
 <body>
   <header class="centralize">
       <p class="fontZ">
-        <%= filme.nome %>
-      </p>
-      <p>
-        <%=filme.genero %>
-      </p>
-      <img src="<%=filme.imagem%>" alt="Filme" class="imag" height="300" width="250" class="img-file" alt = "<%=filme.nome %>">
-    <p>
-      <%=filme.diretor %>
-    </p>
-    <p>
-      <%=filme.ano %>
-    </p>
-    <br>
+       
+ <p class = "titulo">Nome</p>
+
+<%= filme.nome %>
+
+<img src="<%=filme.imagem%>" alt="Filme" class="imag" height="300" width="250" class="img-file" alt="<% filme.nome %>">
+
+<p class = "titulo">Genero</p>
+ 
+ <%= filme.genero %>
+
+ <p class = "titulo">Diertor</p>
+ 
+<%= filme.diretor %>
+
+<p class = "titulo">Ano</p>
+
+ <%= filme.ano %>
+
+ <br>
+ <br>
+
   </header>
 
     <div id = "center">
           <a href="/editar/<%=filme.id%>" class = "botao"><button>Editar</button></a>
           <a href="/deletar/<%=filme.id%>" class = "botao"><button>Excluir</button></a>
     </div>
+    <br>
+    <br>
+    
 
 </body>
 </html>

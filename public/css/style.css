@@ -41,14 +41,14 @@ p {
   list-style: none;
   font-size: 1.2rem;
   font-family: Arial;
-  color: rgb(255, 255, 255);
+  color: rgb(10, 10, 10);
 }
 a {
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
 .header {
-  background-color: rgb(3, 1, 1);
+  background-color: rgb(2, 0, 0);
   background-position: center;
   display: flex;
   flex-wrap: wrap;
@@ -67,7 +67,7 @@ a {
 .menu li a {
   display: block;
   padding: 5px;
-  background-color: rgb(133, 37, 37);
+  background-color: rgb(255, 255, 255);
   font-family: "Times New Roman", Times, serif;
 }
 
@@ -92,17 +92,20 @@ img {
 }
 
 #fundo {
-  background-image: url(../img/fundo.png);
+  background-image: url("../IMG/cubo.png");
+  background-position: center;
 }
 
 .imag {
   width: 200px;
   height: 250px;
+  opacity: 0.7;
 }
 
 .imag:hover {
   width: 250px;
   height: 300px;
+  opacity: 1;
 }
 
 .blackk {
@@ -128,12 +131,15 @@ h2 {
 div {
   max-width: 260px;
 }
-div:hover {
-  width: 250px;
-  height: 350px;
-}
 .fontZ {
   font-size: 25px;
   color: white;
   font-family: serif;
+}
+#message {
+  color: white;
+}
+
+h1 {
+  color: white;
 }

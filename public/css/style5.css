@@ -1,3 +1,7 @@
+body {
+  background-image: url("../IMG/cubo.png");
+  background-position: center;
+}
 body,
 ul,
 li,
@@ -7,7 +11,7 @@ p {
   list-style: none;
   font-size: 1.2rem;
   font-family: Arial;
-  color: rgb(20, 19, 19);
+  color: rgb(255, 255, 255);
 }
 a {
   text-decoration: none;
@@ -20,7 +24,7 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 2px;
+  padding: 3px;
 }
 
 .menu {
@@ -33,45 +37,82 @@ a {
 .menu li a {
   display: block;
   padding: 5px;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
+
   font-family: "Times New Roman", Times, serif;
 }
-body {
-  background-image: url("../IMG/cubo.png");
-  background-position: center;
-}
 
-.box {
-  color: white;
+h1 {
   text-align: center;
-  position: absolute;
+  margin-top: 100px;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.question {
-  color: white;
-  font-family: "Times New Roman", Times, serif;
+.flex > div {
+  flex: 1 1 200px;
+  margin: 10px;
 }
-#center {
-  margin-left: auto;
-  margin-right: auto;
-  width: 180px;
-  margin-top: 5%;
+
+#fundo {
+  background-color: black;
+}
+button {
+  background-color: rgb(247, 247, 247);
+  color: rgb(0, 0, 0);
+
+  border-radius: 10px;
+
+  text-shadow: none;
+
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 19px;
+}
+button:hover {
+  background: #0a0a0a;
+
+  color: #fff;
+
+  border: 1px solid #eee;
+
+  border-radius: 10px;
+
+  box-shadow: 5px 5px 5px #eee;
+
+  text-shadow: none;
+  cursor: pointer;
 }
 .botao {
   border: 0;
-
-  display: inline-block;
+  padding: 10px;
+  width: 150px;
+  height: 35px;
   margin: 10px;
-  cursor: pointer;
 }
-button {
+#center {
+  text-align: center;
+}
+.centralize {
+  text-align: center;
+}
+
+#button1 {
   border-radius: 10px;
   text-shadow: none;
   text-align: center;
   font-family: "Times New Roman", Times, serif;
   font-size: 19px;
 }
-button:hover {
+#button1:hover {
   background: #0a0a0a;
   color: #fff;
   border: 1px solid #eee;

@@ -6,17 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar</title>
     <link rel="icon" href="/IMG/iconn.png">
-    <link rel="stylesheet" href="../css/style3.css">
+    <link rel="stylesheet" href="/../css/style3.css">
  
 </head>
 <body id = "fundo">
         <header class="header">
-            <a href=http://localhost:3000> <img src="../IMG/iconS.png" width="50" height="50"></a>
+            <a href=http://localhost:3000> <img src="../IMG/edita.gif" width="50" height="50"></a>
             <nav>
                 <ul class="menu">
                     <li><a href=http://localhost:3000/cadastro>Criar </a></li>
                     <li><a href=http://localhost:3000>Menu</a></li>
-                    <li><a href=http://localhost:3000/editar>Editar</a></li>
                 </ul>
             </nav>
         </header>
@@ -55,6 +54,12 @@
                     <label for="image"></label class="labelinput">
                     <input type="url" name="image" id="input_image" required value="<%=filme.imagem%>">
                 </div>
+
+                <div>
+                <p><b>Imagem utilizada </b></p>
+                <img src="<%=filme.imagem%>" height="300" width="250" class="img-file" alt="<% filme.nome %>">
+                </div>
+                <br>
                 <div class="inputC">
                     <p class="question">Nome do diretor</p>
                     <label for="diretor"></label class="labelinput">
@@ -70,7 +75,7 @@
                 <button class="botao" type="submit">Editar</button>
                 <br>
                 <br>
-        </form>
+        </form> 
     </div>
 </section>
 

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalago</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Menu</title>
+    <link rel="stylesheet" href="/../css/style.css">
     <link rel="icon" href="/IMG/iconn.png">
 </head>
 <body id = "fundo">
@@ -17,7 +17,7 @@
     </section>
     <% } %>
         <header class="header">
-            <a href=http://localhost:3000> <img src="../IMG/icon.png" width="50" height="50"></a>
+            <a href=http://localhost:3000> <img src="/IMG/edita.gif" width="50" height="50"></a>
             <nav>
                 <ul class="menu">
                     <li><a href=http://localhost:3000/cadastro>Criar </a></li>
@@ -35,12 +35,13 @@
            <h2 class = "fontZ">
                 <%= item.nome %>
            </h2>
-            <a href="detalhes/<%=item.id%>">
-                <img src=" <%=item.imagem%>" alt ="<%=filme.nome%>" class="imag">
+
+            <a href="detalhes/<%= item.id%>">
+                <img src=" <%= item.imagem%>" alt ="<%= filme.nome%>" class="imag">
             </a>
             </div>
         <% }) %>
 </section>
-</bod>
-    <script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="/../js/script.js"></script>
+</body>
 </html>
