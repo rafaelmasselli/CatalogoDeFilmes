@@ -2,11 +2,10 @@ const express = require("express");
 const path = require("path");
 const app = express();
 require('dotenv').config()
-const porta = process.env.PORT;
+
+const porta = process.env.PORT || 3000;
 const db = require('./model/database')
-
 const filmes = require('./model/filme');
-
 
 let mensagem = ""
 
@@ -20,12 +19,6 @@ app.get("/",  async (req, res) => {
   const filme = await filmes.findAll();
     setTimeout(() => { mensagem = "";}, 5000);
   res.render("index", {mensagem,filme});
-});
-
-
-app.get("/filme", async (req, res) => {
-  const filme = await filmes.findAll();
-  res.json({filme}); 
 });
 
 // render cadastro
@@ -115,5 +108,4 @@ app.post("/editar/:id", async function (req,res){
     res.render("../views/editar",{filme,mensagem:`o filme ${nome} foi alterado`})
 });
 
-db.conectado();
 app.listen(porta, () =>console.log(`Servidor rodando em http://localhost:${porta}`));

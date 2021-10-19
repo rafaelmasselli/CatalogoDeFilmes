@@ -1,7 +1,7 @@
 const {Sequelize}  = require('sequelize');
 const database = require("./database");
 
-const Filme = database.sequelize.define("filmes", {
+const Filme = database.define("filmes", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
