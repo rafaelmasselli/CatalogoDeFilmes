@@ -39,26 +39,26 @@ app.get("/cadastro", (req, res) => {
 app.post("/New", async (req, res) => {  
   const {nome,genero,image,diretor,ano} = req.body;
   const filme = await filmes.create({
-    Nome:nome,
-    Genero:genero,
-    Imagem:image,
-    Diretor:diretor,
-    Ano:ano,
+    nome:nome,
+    genero:genero,
+    imagem:image,
+    diretor:diretor,
+    ano:ano,
       })
 mensagem = `O Filme ${nome} foi adicionado`
 res.redirect("/")})
 
 // render detalhes com id <a>
 
-app.get("/detalhes/:ID", async function (req, res){
-  const filme = await filmes.findByPk(req.params.ID);
+app.get("/detalhes/:id", async function (req, res){
+  const filme = await filmes.findByPk(req.params.id);
   res.render("../views/detalhes",{filme:filme})
 });
 
 // render deleter
 
-app.get("/deletar/:ID", async (req, res) => {
-  const filme = await filmes.findByPk(req.params.ID);
+app.get("/deletar/:id", async (req, res) => {
+  const filme = await filmes.findByPk(req.params.id);
 
   if (!filme) {
     res.render("deletar", {
@@ -71,8 +71,8 @@ app.get("/deletar/:ID", async (req, res) => {
   });
 });
 
-app.post('/deletar/deletar/:ID', async (req,res) => {
-  const filme = await filmes.findByPk(req.params.ID);
+app.post('/deletar/deletar/:id', async (req,res) => {
+  const filme = await filmes.findByPk(req.params.id);
 
   if (!filme) {    
     res.render("deletar", {      
@@ -87,35 +87,40 @@ app.post('/deletar/deletar/:ID', async (req,res) => {
     mensagem: `Filme deletado com sucesso!`,  filme:filmesList});
 });
 
-
 //render editar
 
-app.get('/editar/:ID', async (req,res) => {
-  const filme = await filmes.findByPk(req.params.ID);
+app.get('/editar/:id', async (req,res) => {
+  const filme = await filmes.findByPk(req.params.id);
 
   if (!filme) {
     res.render("deletar", {
       mensagem: "Filme não encontrado!",
     });
   }
+  
+  var options = [ 
+    "Animação", "Comédia", "Comédia Romântica", "Comédia Dramática", "Documentário", "Drama","Faroeste", "Ficção Científica", "Musical", "Suspense", "Terror / Horror"];
+  for ( var i = 0; i < options.length; i++ )
+  {
+      var selected = (filme.genero == i ) ? "selected" : "";
+  }
 
   res.render("../views/editar", {filme: filme});
 });
 
-app.post("/editar/:ID", async function (req,res){
-    const filme = await filmes.findByPk(req.params.ID);
+app.post("/editar/:id", async function (req,res){
+    const filme = await filmes.findByPk(req.params.id);
     const { nome, genero, image, diretor, ano} = req.body;
     
-    filme.ID = req.params.ID;
-    filme.Nome = nome;
-    filme.Genero = genero;
-    filme.Imagem = image;
-    filme.Diretor = diretor;
-    filme.Ano = ano;
+    filme.id = req.params.id;
+    filme.nome = nome;
+    filme.genero = genero;
+    filme.imagem = image;
+    filme.diretor = diretor;
+    filme.ano = ano;
     
     await filme.save();
-    res.redirect("/");  
-    res.render("../views/editar",{filme})
+    res.redirect("/"); 
 });
 
 
