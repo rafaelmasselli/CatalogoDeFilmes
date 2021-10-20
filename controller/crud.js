@@ -17,7 +17,7 @@ router.get("/cadastro", (req, res) => {
 });
 
 // cadastro do render
-  
+
 router.post("/New", async (req, res) => {
 
   const {nome,genero,image,diretor,ano} = req.body;
@@ -28,12 +28,30 @@ router.post("/New", async (req, res) => {
     diretor:diretor,
     ano:ano,
   })
+  if (!nome){
+res.redirect("/cadastro" ,{mensagem: "tabela nome esta vazia"})
+  }else if  (!genero)
+  {
+res.redirect("/cadastro" ,{mensagem: "tabela genero esta vazia"})
+  }else if  (!image) 
+  {
+res.redirect("/cadastro" ,{mensagem: "tabela de imagem esta vazia"})
+  }else if  (!diretor) 
+  {
+res.redirect("/cadastro" ,{mensagem: "tabela de diretor esta vazia"})
+  }else if  (!ano) 
+  {
+res.redirect("/cadastro" ,{mensagem: "tabela de ano esta vazia"})
+  };
   mensagem = `O Filme ${nome} foi adicionado`
 res.redirect("/"),filme})
+ 
+//render detalhe
 
 router.get("/detalhes/:id", async function (req, res){
   const filme = await filmes.findByPk(req.params.id);
   res.render("../views/detalhes",{filme:filme})
+
 });
 
 // deletar do render
@@ -52,6 +70,8 @@ router.get("/deletar/:id", async (req, res) => {
   });
 });
 
+// render delete
+
 router.post('/deletar/deletar/:id', async (req,res) => {
   const filme = await filmes.findByPk(req.params.id);
 
@@ -59,7 +79,6 @@ router.post('/deletar/deletar/:id', async (req,res) => {
     res.render("../views/deletar",  {mensagem: "Filme não encontrado!",});};
 
   await filme.destroy();
-
   const filmesList = await filmes.findAll();
   res.render("../views/index", {mensagem: `Filme deletado com sucesso!`,  filme:filmesList});
 });
