@@ -11,14 +11,14 @@
 </head>
 <body id = "fundo1" class = "fonteid">
         <header class="header">
-            <a href=http://localhost:3000> <img src="../IMG/edita.gif" width="50" height="45"></a>
+            <a href="/"> <img src="../IMG/edita.gif" width="50" height="45"></a>
             <nav>
                 <ul class="menu">
-                    <li><a href=http://localhost:3000/cadastro>Criar </a></li>
-                    <li><a href=http://localhost:3000>Menu</a></li>
+                    <li><a href=/cadastro>Criar </a></li>
+                    <li><a href="/">Menu</a></li>
                 </ul>
             </nav>
-        </header>   
+        </header>
 <section id = "center">
                 <div class = "box">
                     <form action="/New" method="POST">
@@ -64,7 +64,7 @@
                         <div class="inputC">
                             <p class= "question">Ano de lancamento</p>
                             <label for="ano"></label>
-                            <input type="text" name="ano" id="input_ano" placeholder="ano" required>
+                            <input type="number" name="ano" id="input_ano" placeholder="ano" required>
                         </div>
                         <br>
                         <button class="botao" type="submit">Adicionar</button>

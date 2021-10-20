@@ -99,13 +99,13 @@ img {
 .imag {
   width: 200px;
   height: 250px;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .imag:hover {
   width: 250px;
   height: 300px;
-  opacity: 1;
+  opacity: 5;
 }
 
 .blackk {

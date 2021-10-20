@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 require('dotenv').config()
+const yup = require('yup');
 
 const porta = process.env.PORT || 3000;
 const db = require('./model/database')
@@ -10,10 +11,11 @@ const filmes = require('./model/filme');
 let mensagem = ""
 
 app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "/views/public")));
 app.use(express.urlencoded({ extended: true }))
 
 // render com a mensagem 
+
 
 app.get("/",  async (req, res) => {
   const filme = await filmes.findAll();
@@ -29,7 +31,8 @@ app.get("/cadastro", (req, res) => {
 
 // render cadastro, redirect index principal
 
-app.post("/New", async (req, res) => {  
+app.post("/New", async (req, res) => {
+
   const {nome,genero,image,diretor,ano} = req.body;
   const filme = await filmes.create({
     nome:nome,
@@ -38,10 +41,12 @@ app.post("/New", async (req, res) => {
     diretor:diretor,
     ano:ano,
   })
+
+
   mensagem = `O Filme ${nome} foi adicionado`
 res.redirect("/"),filme})
 
-// render detalhes com id <a>
+// render detalhes com id 
 
 app.get("/detalhes/:id", async function (req, res){
   const filme = await filmes.findByPk(req.params.id);
