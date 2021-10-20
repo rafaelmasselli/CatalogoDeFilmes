@@ -111,7 +111,8 @@ app.post("/editar/:id", async function (req,res){
     mensagem = `O Filme ${nome} foi alterado com sucesso!`
   
     await filme.save();
-    res.render("../views/editar",{filme,mensagem:`o filme ${nome} foi alterado`})
+    res.render("../views/editar",{filme,mensagem});
 });
 
+db.conectado();
 app.listen(porta, () =>console.log(`Servidor rodando em http://localhost:${porta}`));
