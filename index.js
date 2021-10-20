@@ -2,7 +2,6 @@ const express = require("express");
 const path = require("path");
 const app = express();
 require('dotenv').config()
-const yup = require('yup');
 
 const porta = process.env.PORT || 3000;
 const db = require('./model/database')
