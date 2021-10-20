@@ -31,27 +31,30 @@
             <br>
             <div class="inputC">
                 <p class="question">Genero</p>
+
                 <select id="gen" name="genero">
-                    <option value="Animação">Animação</option>
-                    <option value="Comédia">Comédia</option>
-                    <option value="Comédia Romântica">Comédia Romântica</option>
-                    <option value="Comédia Dramática">Comédia Dramática</option>
-                    <option value="Documentário">Documentário</option>
-                    <option value="Drama">Drama</option>
-                    <option value="Faroeste ">Faroeste</option>
-                    <option value="Ficção Científica">Ficção Científica</option>
-                    <option value="Musical"> Musical </option>
-                    <option value="Suspense">Suspense</option>
-                    <option value="Terror / Horror x">Terror / Horror</option>
-                </select>
+                    <%
+                    var options = [ "Animação", "Comédia", "Comédia Romântica", "Comédia Dramática", "Documentário", "Drama","Faroeste", "Ficção Científica", "Musical", "Suspense", "Terror / Horror"];
+                        for ( var i = 0; i < options.length; i++ ){
+                            if (filme.genero===options[i]) { %>
+                                <option value="<%=options[ i ] %>" selected><%=options[i] %></option>
+                            <%} else{%>
+                                <option value="<%=options[ i ] %>" ><%=options[i] %></option>
+                            <%}
+                    
+                                                
+                    }%>
+ 
+                    </select>
                 <br>
                 <br>
+                <p><b>Imagem utilizada </b></p>
                 <div class="inputC">
                     <p class="question">Imagem Url</p>
                     <label for="image"></label class="labelinput">
                     <input type="url" name="image" id="input_image" required value="<%=filme.imagem%>">
                 </div>
-                <br>
+
                 <div>
                 <p><b>Imagem utilizada </b></p>
                 <img src="<%=filme.imagem%>" height="300" width="250" class="img-file" alt="<% filme.nome %>">

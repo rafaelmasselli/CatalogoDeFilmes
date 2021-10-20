@@ -50,8 +50,8 @@ app.get("/detalhes/:id", async function (req, res){
 
 // render deleter
 
-app.get("/deletar/:ID", async (req, res) => {
-  const filme = await filmes.findByPk(req.params.ID);
+app.get("/deletar/:id", async (req, res) => {
+  const filme = await filmes.findByPk(req.params.id);
 
   if (!filme) {
     res.render("deletar", {
@@ -64,8 +64,8 @@ app.get("/deletar/:ID", async (req, res) => {
   });
 });
 
-app.post('/deletar/deletar/:ID', async (req,res) => {
-  const filme = await filmes.findByPk(req.params.ID);
+app.post('/deletar/deletar/:id', async (req,res) => {
+  const filme = await filmes.findByPk(req.params.id);
 
   if (!filme) {    
     res.render("deletar",  {mensagem: "Filme não encontrado!",});};
@@ -78,13 +78,20 @@ app.post('/deletar/deletar/:ID', async (req,res) => {
 
 //render editar
 
-app.get('/editar/:ID', async (req,res) => {
-  const filme = await filmes.findByPk(req.params.ID);
+app.get('/editar/:id', async (req,res) => {
+  const filme = await filmes.findByPk(req.params.id);
 
   if (!filme) {
     res.render("deletar", {
       mensagem: "Filme não encontrado!",
     });
+  }
+  
+  var options = [ 
+    "Animação", "Comédia", "Comédia Romântica", "Comédia Dramática", "Documentário", "Drama","Faroeste", "Ficção Científica", "Musical", "Suspense", "Terror / Horror"];
+  for ( var i = 0; i < options.length; i++ )
+  {
+      var selected = (filme.genero == i ) ? "selected" : "";
   }
 
   res.render("../views/editar", {filme:filme});
@@ -104,7 +111,6 @@ app.post("/editar/:id", async function (req,res){
     mensagem = `O Filme ${nome} foi alterado com sucesso!`
   
     await filme.save();
-    res.redirect("/");  
     res.render("../views/editar",{filme,mensagem:`o filme ${nome} foi alterado`})
 });
 

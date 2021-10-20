@@ -12,8 +12,10 @@ const Filme = database.define("filmes", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  genero: Sequelize.STRING,
-  
+  genero: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   imagem: {
     type: Sequelize.STRING,
     allowNull: false,
