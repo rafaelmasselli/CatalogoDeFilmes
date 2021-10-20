@@ -89,12 +89,6 @@ router.post('/deletar/deletar/:id', async (req,res) => {
 router.get('/editar/:id', async (req,res) => {
   const filme = await filmes.findByPk(req.params.id);
 
-  if (!filme) {
-    res.render("../views/deletar", {
-      mensagem: "Filme não encontrado!",
-    });
-  }
-  
   var options = [ 
     "Animação", "Comédia", "Comédia Romântica", "Comédia Dramática", "Documentário", "Drama","Faroeste", "Ficção Científica", "Musical", "Suspense", "Terror / Horror"];
   for ( var i = 0; i < options.length; i++ )
@@ -118,6 +112,26 @@ router.post("/editar/:id", async function (req,res){
     filme.imagem = image;
     filme.diretor = diretor;
     filme.ano = ano;
+      if (!filme) {
+    res.render("../views/deletar", {
+      mensagem: "Filme não encontrado!",
+    });
+  }
+    if (!nome){
+res.redirect("/editar" ,{mensagem: "tabela nome esta vazia"})
+  }else if  (!genero)
+  {
+res.redirect("/editar" ,{mensagem: "tabela genero esta vazia"})
+  }else if  (!image) 
+  {
+res.redirect("/editar" ,{mensagem: "tabela de imagem esta vazia"})
+  }else if  (!diretor) 
+  {
+res.redirect("/editar" ,{mensagem: "tabela de diretor esta vazia"})
+  }else if  (!ano) 
+  {
+res.redirect("/editar" ,{mensagem: "tabela de ano esta vazia"})
+  };
 
     mensagem = `O Filme ${nome} foi alterado com sucesso!`
   
