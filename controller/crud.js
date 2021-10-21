@@ -21,13 +21,7 @@ router.get("/cadastro", (req, res) => {
 router.post("/New", async (req, res) => {
 
   const {nome,genero,image,diretor,ano} = req.body;
-  const filme = await filmes.create({
-    nome:nome,
-    genero:genero,
-    imagem:image,
-    diretor:diretor,
-    ano:ano,
-  })
+  
   if (!nome){
 res.redirect("/cadastro" ,{mensagem: "tabela nome esta vazia"})
   }else if  (!genero)
@@ -43,6 +37,14 @@ res.redirect("/cadastro" ,{mensagem: "tabela de diretor esta vazia"})
   {
 res.redirect("/cadastro" ,{mensagem: "tabela de ano esta vazia"})
   };
+
+  const filme = await filmes.create({
+    nome:nome,
+    genero:genero,
+    imagem:image,
+    diretor:diretor,
+    ano:ano,
+  })
   mensagem = `O Filme ${nome} foi adicionado`
 res.redirect("/"),filme})
  
@@ -106,17 +108,6 @@ router.post("/editar/:id", async function (req,res){
     const filme = await filmes.findByPk(req.params.id);
     const { nome, genero, image, diretor, ano} = req.body;
     
-    filme.id = req.params.id;
-    filme.nome = nome;
-    filme.genero = genero;
-    filme.imagem = image;
-    filme.diretor = diretor;
-    filme.ano = ano;
-      if (!filme) {
-    res.render("../views/deletar", {
-      mensagem: "Filme não encontrado!",
-    });
-  }
     if (!nome){
 res.redirect("/editar" ,{mensagem: "tabela nome esta vazia"})
   }else if  (!genero)
@@ -132,6 +123,19 @@ res.redirect("/editar" ,{mensagem: "tabela de diretor esta vazia"})
   {
 res.redirect("/editar" ,{mensagem: "tabela de ano esta vazia"})
   };
+
+
+    filme.id = req.params.id;
+    filme.nome = nome;
+    filme.genero = genero;
+    filme.imagem = image;
+    filme.diretor = diretor;
+    filme.ano = ano;
+      if (!filme) {
+    res.render("../views/deletar", {
+      mensagem: "Filme não encontrado!",
+    });
+  }
 
     mensagem = `O Filme ${nome} foi alterado com sucesso!`
   
